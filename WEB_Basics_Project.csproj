@@ -6,11 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\IDbSettings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WEB_Basics_Project.Core\WEB_Basics_Project.Core.csproj" />
+    <ProjectReference Include="..\WEB_Basics_Project.Domain\WEB_Basics_Project.Domain.csproj" />
+    <ProjectReference Include="..\WEB_Basics_Project.Repository\WEB_Basics_Project.Repository.csproj" />
   </ItemGroup>
 
 </Project>
