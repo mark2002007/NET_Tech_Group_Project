@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\handsVolonteers.jpeg" />
+    <None Include="wwwroot\Images\logoFlag.png" />
+    <None Include="wwwroot\Images\photoGoogleIcon.png" />
+    <None Include="wwwroot\Images\photoMainGirl.jpg" />
+    <None Include="wwwroot\Images\photoMainPeople.jpg" />
+    <None Include="wwwroot\Images\photoMainPer.jpg" />
+    <None Include="wwwroot\Images\photoMainRatusha.jpg" />
+    <None Include="wwwroot\Images\photoMainVolon.jpg" />
+    <None Include="wwwroot\Images\photoVolonFlag.jpg" />
+    <None Include="wwwroot\Images\photoVolonHands.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
