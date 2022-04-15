@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace WEB_Basics_Project.Controllers
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
     public class ContactsController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Contacts()
         {
             return View();
         }

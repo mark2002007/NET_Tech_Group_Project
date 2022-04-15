@@ -52,7 +52,9 @@ a { /* Provide sufficient contrast against white background */
 }
 
 .row {
-  display: flex;
+  display: block;
+  text-align:center;
+  margin: 0 auto;
 }
 .column {
   flex: 33.33%;
