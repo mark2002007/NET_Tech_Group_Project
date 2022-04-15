@@ -47,8 +47,8 @@ a { /* Provide sufficient contrast against white background */
   position: absolute;
   bottom: 0;
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  background:black;
+  line-height: 10px; /* Vertically center the text there */
 }
 
 .row {
@@ -73,14 +73,14 @@ a { /* Provide sufficient contrast against white background */
 }
 .container .btn {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #1280ab;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  padding: 12px 35px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -100,4 +100,17 @@ button.accept-policy {
 table , td, tr .tr_no_border {
     background-color:white;
     border:none;
+}
+
+ .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);  
+    color: white;
+    font-size: 16px;
+    padding: 12px 5px;
+    cursor: pointer;
+  
 }
