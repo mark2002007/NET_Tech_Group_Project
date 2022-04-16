@@ -2,7 +2,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 
-namespace WEB_Basics_Project.Data.Models
+namespace WEB_Basics_Project.Data.MongoDB.Models
 {
     public class Volunteer
     {
