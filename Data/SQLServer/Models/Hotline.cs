@@ -1,12 +1,8 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace WEB_Basics_Project.Data.Models
+﻿
+namespace WEB_Basics_Project.Data.SQLServer.Models
 {
     public class Hotline
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public int HotlineID { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
