@@ -11,7 +11,8 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
     public class ApplicationDbContext : IdentityDbContext
     {
         DbSet<Volunteer> Volunteers { get; set; }
-        DbSet<Hotline> Hotlines{ get; set; }
+        DbSet<Hotline> Hotlines { get; set; }
+        DbSet<Service> Services { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -40,7 +41,24 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
                 .HasMaxLength(32);
 
             modelBuilder.Entity<Volunteer>()
-                .Property(v => v.Age)
+                .Property(v => v.PhoneNumber)
+                .HasMaxLength(16);
+
+            modelBuilder.Entity<Volunteer>()
+                .Property(v => v.Email)
+                .HasMaxLength(64);
+
+
+            //
+            //=====Service=====
+            //
+
+            modelBuilder.Entity<Service>()
+                .Property(v => v.VolunteerID)
+                .IsRequired();
+
+            modelBuilder.Entity<Service>()
+                .Property(v => v.Description)
                 .IsRequired();
 
             //
@@ -68,6 +86,7 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
                 .Property(h => h.Operator)
                 .IsRequired()
                 .HasMaxLength(128);
+
         }
     }
 }
