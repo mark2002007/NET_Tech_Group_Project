@@ -3,17 +3,19 @@ for details on configuring this project to bundle and minify static web assets. 
 
 /* Sticky footer styles-------------------------------------------------- */
 html {
-  font-size: 14px;
-  position: relative;
-  min-height: 100%;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
+
 body {
-   margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 a.navbar-brand {
@@ -33,84 +35,74 @@ a { /* Provide sufficient contrast against white background */
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background:black;
-  line-height: 10px; /* Vertically center the text there */
+    position: static;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    line-height: 10px; /* Vertically center the text there */
 }
 
 .row {
-  display: block;
-  text-align:center;
-  margin: 0 auto;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
 }
+
 .column {
-  flex: 33.33%;
-  padding: 5px;
+    flex: 33.33%;
+    padding: 5px;
 }
+
 .col {
-    text-align:center;
+    text-align: center;
 }
+
 .container {
-  position: relative;
-  width: 50%;
+    position: relative;
+    width: 50%;
 }
-.container img {
-  width: 100%;
-  height: auto;
-}
-.container .btn {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #1280ab;
-  color: white;
-  font-size: 16px;
-  padding: 12px 35px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.container .btn:hover {
-  background-color: #4800ff;
-}
+
+    .container img {
+        width: 100%;
+        height: auto;
+    }
+
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
 }
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }
-table , td, tr .tr_no_border {
-    background-color:white;
-    border:none;
+
+table, td, tr .tr_no_border {
+    background-color: white;
+    border: none;
 }
 
- .centered {
+.centered {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);  
+    -ms-transform: translate(-50%, -50%);
     color: white;
     font-size: 16px;
     padding: 12px 5px;
     cursor: pointer;
-  
 }

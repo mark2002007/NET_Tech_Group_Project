@@ -3,74 +3,47 @@
 }
 
 <div class="container">
+    <img id="bg" src="~/Images/handsVolonteers.png" class="img-fluid" alt="Responsive image" />
 
-
-    <img id="bg" src="~/Images/handsVolonteers.jpeg" class="img-fluid" alt="Responsive image" />
-    <div class='centered'>
-        <h2 style="color:white">ВИ МОЖЕТЕ ЗНАЙТИ КОРИСНУ ІНФОРМАЦІЮ У ВЛАСНИХ ЦІЛЯХ АБО ДЛЯ ПЕРЕСЕЛЕНЦІВ ЗІ СХОДУ</h2>
-    </div>
-   
-
-</div>
-<br />
-<div id="banner" style="overflow: hidden; display: flex; justify-content:space-around;">
-    <div class="" style="max-width: 40%; max-height: 20%;">
-        <img src="~/Images/photoMainPer.jpg">
-    </div>
-    <div class="" style="max-width: 40%; max-height: 20%;">
-        <img src="~/Images/photoMainGirl.jpg">
-    </div>
-</div>
-<br />
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img id="bg" src="~/Images/photoMainPeople.jpg" class="img-fluid" alt="Responsive image" />
+    <div class="row mt-4">
+        <div class="col-6 w-100">
+            <img src="~/Images/photoMainPer.jpg">
         </div>
-        <div class="col" style="background:white;">
-            <div class="row">
-                <br />
-                <h4 style="padding-left:100px;padding-top:100px;">Ви знайдете інформацію..</h4>
-                <p style="padding-left:100px;">Де шукати найближче укриття у Львові на карті або адресою</p>
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
-                    Укриття
-                </button>
-            </div>
+        <div class="col-6 w-100">
+            <img src="~/Images/photoMainGirl.png">
         </div>
     </div>
-</div>
-<br />
-<br />
-<div class="container">
-    <div class="row">
-        <div class="col" style="background:white;">
-            <div class="row">
-                <br />
-                <h4 style="padding-left:100px;padding-top:100px;">Ви знайдете інформацію..</h4>
-                <p style="padding-left:100px;">Де знаходяться усі пункти прийому біженців у місті Львів</p>
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
-                    Пункти
-                </button>
-            </div>
+
+    <div class="row mt-4">
+        <div class="col-12 col-md-6 w-100">
+            <img src="~/Images/photoMainPeople.jpg" />
         </div>
-        <div class="col">
-            <img id="bg" src="~/Images/photoMainRatusha.jpg" class="img-fluid" alt="Responsive image" style="width:700px;height:400px;" />
+        <div class="col-12 col-md-6 text-center w-100 pt-5 pt-md-3 pt-lg-5">
+            <h4>Ви знайдете інформацію.</h4>
+            <p>Де шукати найближче укриття у Львові на карті або адресою.</p>
+
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                Укриття
+            </button>
         </div>
     </div>
-</div>
-<br />
 
+    <div class="row mt-4">
+        <div class="col-12 col-md-6 order-1 order-md-0 text-center w-100 mt-md-3 mt-lg-5 pt-5 pt-md-3 pt-lg-5">
+            <h4>Ви знайдете інформацію.</h4>
+            <p>Де знаходяться усі пункти прийому біженців у місті Львів.</p>
 
-<div class="container">
-    <img src="~/Images/photoMainVolon.jpg" alt="Snow">
-    <div class='centered'>
-        <h3 style="color:white;text-align:center">ВОЛОНТЕРИ</h3>
-        <h5 style="color:white">ми створили сайт,щоб українці були проінформовані,де у нашому Львові отримати допомогу</h5>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
+                Пункти
+            </button>
+        </div>
+        <div class="col-12 col-md-6 order-0 order-md-1 w-100">
+            <img src="~/Images/photoMainRatusha.jpg" />
+        </div>
     </div>
-   
-    <button class="btn">Про нас</button>
+
+    <div class="d-flex justify-content-center">
+        <img id="bg" src="~/Images/photoMainVolon.png" class="img-fluid pt-4" alt="Responsive image" />
+        <button class="position-absolute btn btn-primary" style="bottom: calc(0em + 13px)" asp-controller="Volunteer" asp-action="Volunteer">Про нас</button>
+    </div>
 </div>
