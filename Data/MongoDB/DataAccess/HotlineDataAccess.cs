@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using WEB_Basics_Project.Data.Models;
+using WEB_Basics_Project.Data.MongoDB.Models;
 
 namespace WEB_Basics_Project.Data.MongoDB.DataAccess
 {

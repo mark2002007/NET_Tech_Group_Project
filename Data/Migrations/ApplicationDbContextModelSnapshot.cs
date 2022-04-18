@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 using WEB_Basics_Project.Data;
+using WEB_Basics_Project.Data.SQLServer.DataAccess;
 
 namespace WEB_Basics_Project.Data.Migrations
 {
