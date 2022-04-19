@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light border-bottom mb-3">
             <div class="container">
-                <div class="navbar-header pull-left">
+                <div class="navbar-header">
                     <img src="..//Images//logoFlag.png" style="width:25px;height:25px;" />
 
                 </div>
@@ -43,17 +43,19 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    <footer class="footer text-muted">
-        <span class="d-flex justify-content-center">
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer>
+        <span class="d-flex justify-content-center bg-black">
             <a href="https://www.facebook.com/groups/varta1officialgroup"><img id="bg" src="~/Images/facebookLogo.png" alt="Responsive image" style="width:42px;height:42px;" /></a>
             <a href="https://twitter.com/AndriySadovyi"><img id="bg" src="~/Images/twitterLogo.png" alt="Responsive image" style="width:42px;height:42px;" /></a>
         </span>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

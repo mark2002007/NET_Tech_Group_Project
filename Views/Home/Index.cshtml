@@ -42,8 +42,21 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-        <img id="bg" src="~/Images/photoMainVolon.png" class="img-fluid pt-4" alt="Responsive image" />
-        <button class="position-absolute btn btn-primary" style="bottom: calc(0em + 13px)" asp-controller="Volunteer" asp-action="Volunteer">Про нас</button>
+    <div class="container text-center my-4"
+         style="background-image: url(https://localhost:44388/Images/photoMainVolon.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;">
+        <div class="justify-content-center row">
+            <h2 class="col-12 text-white py-5">
+                ВОЛОНТЕРИ
+            </h2>
+            <h4 class="col-9 text-white py-4">
+                Ми створили веб сайт, щоб українці були проінформовані, де у нашому Львові отримати допомогу
+            </h4>
+            <div class="col-12 pb-5">
+                <button class="btn btn-primary" asp-controller="Volunteer" asp-action="Volunteer">Про нас</button>
+            </div>
+        </div>
     </div>
 </div>
