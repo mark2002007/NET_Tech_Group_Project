@@ -11,7 +11,8 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
     public class ApplicationDbContext : IdentityDbContext
     {
         DbSet<Volunteer> Volunteers { get; set; }
-        DbSet<Hotline> Hotlines{ get; set; }
+        DbSet<Hotline> Hotlines { get; set; }
+        DbSet<Service> Services { get; set; } 
 
         public ApplicationDbContext() : base()
         {
@@ -79,7 +80,8 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
 
             modelBuilder.Entity<Service>()
                 .Property(s => s.Description)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(2024);
 
             //
             //=====Hotline=====
@@ -91,7 +93,8 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
 
             modelBuilder.Entity<Hotline>()
                 .Property(h => h.Name)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(256);
 
             modelBuilder.Entity<Hotline>()
                 .Property(h => h.Number)
@@ -100,7 +103,8 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
 
             modelBuilder.Entity<Hotline>()
                 .Property(h => h.Area)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(256);
         }
     
         public bool Populate()
