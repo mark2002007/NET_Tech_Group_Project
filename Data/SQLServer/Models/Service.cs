@@ -3,7 +3,7 @@
     public class Service
     {
         public int ServiceID { get; set; }
-        public int VolunteerID { get; set; }
+        public Volunteer Volunteer { get; set; }
         public string Description { get; set; }
     }
 }

@@ -11,16 +11,32 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
     public class ApplicationDbContext : IdentityDbContext
     {
         DbSet<Volunteer> Volunteers { get; set; }
-        DbSet<Hotline> Hotlines { get; set; }
-        DbSet<Service> Services { get; set; }
+        DbSet<Hotline> Hotlines{ get; set; }
+
+        public ApplicationDbContext() : base()
+        {
+        }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-9GGT2EU;Initial Catalog=NET_Tech_Group_Project_DB;Integrated Security=True;");
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //
+            //====One to Many Relationships=====
+            //
+
+            modelBuilder.Entity<Volunteer>()
+                .HasMany(v => v.Services)
+                .WithOne(s => s.Volunteer);
 
             //
             //=====Volunteer=====
@@ -54,11 +70,15 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
             //
 
             modelBuilder.Entity<Service>()
-                .Property(v => v.VolunteerID)
+                .Property(s => s.ServiceID)
                 .IsRequired();
 
             modelBuilder.Entity<Service>()
-                .Property(v => v.Description)
+                .Property(s => s.ServiceID)
+                .IsRequired();
+
+            modelBuilder.Entity<Service>()
+                .Property(s => s.Description)
                 .IsRequired();
 
             //
@@ -81,12 +101,161 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
             modelBuilder.Entity<Hotline>()
                 .Property(h => h.Area)
                 .IsRequired();
+        }
+    
+        public bool Populate()
+        {
+            try
+            {
+                //=====Volunteers=====
+                var db = new ApplicationDbContext();
+                db.Volunteers.Add(new Volunteer{ 
+                    FirstName = "Юлія", 
+                    LastName = "Жорняк", 
+                    PhoneNumber = "+380000000000", 
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Марія",
+                    LastName = "Гартованець",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Станіслав",
+                    LastName = "Тимняк",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Маркіян",
+                    LastName = "Щупляк",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Маркіян",
+                    LastName = "Щупляк",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Маркіян",
+                    LastName = "Мандзак",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Юрій",
+                    LastName = "Спасник",
+                    PhoneNumber = "+380000000000",
+                    Email = "#####@gmail.com"
+                });
+                //=====Services=====
+                //TODO : Services Population
 
-            modelBuilder.Entity<Hotline>()
-                .Property(h => h.Operator)
-                .IsRequired()
-                .HasMaxLength(128);
+                //=====Hotlines=====
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Житловик - С\"",
+                    Number = "+38(032)254-66-56",
+                    Area = "Сихівський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Хуторівка\"",
+                    Number = "+38(032)254-66-55",
+                    Area = "Сихівський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Під Зуброю\"",
+                    Number = "+38(032)254-66-59",
+                    Area = "Сихівський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Магістральне\"",
+                    Number = "+38(032)254-66-72",
+                    Area = "Франківський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Вулецьке\"",
+                    Number = "+38(032)254-66-69",
+                    Area = "Франківський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Аварійна служба Франківського\"",
+                    Number = "+38(032)263-25-61",
+                    Area = "Франківський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Лівівський ліхтар\"",
+                    Number = "+38(032)254-66-68",
+                    Area = "Франківський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Південне\"",
+                    Number = "+38(032)254-66-73",
+                    Area = "Франківський район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Айсберг\"",
+                    Number = "+38(032)254-66-43",
+                    Area = "Галицький район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Старий Львів\"",
+                    Number = "+38(032)254-66-40",
+                    Area = "Галицький район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Левандівка\"",
+                    Number = "+38(032)254-66-64",
+                    Area = "Залізничний район"
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Сигнівка\"",
+                    Number = "+38(032)254-66-65",
+                    Area = "Залізничний район"
+                });
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
 
+        public bool Depopulate()
+        {
+            try
+            {   
+                var db = new ApplicationDbContext();
+                db.Database.ExecuteSqlCommand("DELETE FROM Services");
+                db.Database.ExecuteSqlCommand("DELETE FROM Volunteers");
+                db.Database.ExecuteSqlCommand("DELETE FROM Hotlines");
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
