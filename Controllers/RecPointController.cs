@@ -11,7 +11,7 @@ namespace WEB_Basics_Project.Controllers
     [ApiController]
     public class RecPointController : Controller
     {
-        public IActionResult Index()
+        public IActionResult RecPoint()
         {
             return View();
         }
