@@ -9,9 +9,9 @@ namespace WEB_Basics_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShelterController : Controller
+    public class SheltersController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Shelter()
         {
             return View();
         }
