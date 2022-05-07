@@ -21,9 +21,8 @@
         <div class="col-12 col-md-6 text-center w-100 pt-5 pt-md-3 pt-lg-5">
             <h4>Ви знайдете інформацію.</h4>
             <p>Де шукати найближче укриття у Львові на карті або адресою.</p>
-
             <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
-                Укриття
+                Укриття та допомога ЗСУ
             </button>
         </div>
     </div>
@@ -32,6 +31,7 @@
         <div class="col-12 col-md-6 order-1 order-md-0 text-center w-100 mt-md-3 mt-lg-5 pt-5 pt-md-3 pt-lg-5">
             <h4>Ви знайдете інформацію.</h4>
             <p>Де знаходяться усі пункти прийому біженців у місті Львів.</p>
+            <p>У чому різниця між статусом особи, якій надано тимчасовий захист, та статусом біженця.</p>
 
             <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
                 Пункти
@@ -39,6 +39,21 @@
         </div>
         <div class="col-12 col-md-6 order-0 order-md-1">
             <img src="~/Images/photoMainRatusha.jpg" class="rounded w-100" />
+        </div>
+    </div>
+    <div class="container text-center rounded my-4"
+         style="background-image: url(https://localhost:44388/Images/comeBackAlive.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                height:400px;">
+        <div class="justify-content-center row">
+             <h4 style="color:black ; text-align:center; margin-top:220px;">
+             Допомога армії України: куди можна перерахувати кошти
+             </h4>
+             <div class="col-12 pb-5">
+                <button class="btn btn-primary" asp-controller="DonateArmy" asp-action="DonateArmy">Допомога армії</button>
+            </div>
         </div>
     </div>
 
