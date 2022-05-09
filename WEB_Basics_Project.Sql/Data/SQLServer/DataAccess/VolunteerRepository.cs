@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
+﻿namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
-    internal class VolunteerRepository
+    public class VolunteerRepository
     {
+        private readonly IDbSettings _settings;
+
+        public VolunteerRepository(IDbSettings settings)
+            => this._settings = settings;
+
+
+
     }
 }
