@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEB_Basics_Project", "WEB_Basics_Project\WEB_Basics_Project.csproj", "{E1228B77-5DA5-45D2-85DD-640BA4B4E00E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEB_Basics_Project.Sql", "WEB_Basics_Project.Sql\WEB_Basics_Project.Sql.csproj", "{9F1C6E42-1E5A-4781-A74E-8B9F1BB9F15B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E1228B77-5DA5-45D2-85DD-640BA4B4E00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1228B77-5DA5-45D2-85DD-640BA4B4E00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1228B77-5DA5-45D2-85DD-640BA4B4E00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F1C6E42-1E5A-4781-A74E-8B9F1BB9F15B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F1C6E42-1E5A-4781-A74E-8B9F1BB9F15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F1C6E42-1E5A-4781-A74E-8B9F1BB9F15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F1C6E42-1E5A-4781-A74E-8B9F1BB9F15B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
