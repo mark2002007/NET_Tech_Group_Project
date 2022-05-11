@@ -1,4 +1,5 @@
-﻿namespace WEB_Basics_Project.Data.SQLServer.Models
+﻿
+namespace WEB_Basics_Project.Sql.Data.SQLServer.Models
 {
     public class Service
     {

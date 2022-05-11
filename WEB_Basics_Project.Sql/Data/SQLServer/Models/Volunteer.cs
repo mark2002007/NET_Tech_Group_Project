@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WEB_Basics_Project.Data.SQLServer.Models
+namespace WEB_Basics_Project.Sql.Data.SQLServer.Models
 {
     public class Volunteer
     {
@@ -9,6 +9,6 @@ namespace WEB_Basics_Project.Data.SQLServer.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public ICollection<Service> Services { get; set; } 
+        public ICollection<Service> Services { get; set; }
     }
 }

@@ -4,15 +4,15 @@ using System.Text;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using WEB_Basics_Project.Data.SQLServer.Models;
+using WEB_Basics_Project.Sql.Data.SQLServer.Models;
 
-namespace WEB_Basics_Project.Data.SQLServer.DataAccess
+namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
         DbSet<Volunteer> Volunteers { get; set; }
         DbSet<Hotline> Hotlines { get; set; }
-        DbSet<Service> Services { get; set; } 
+        DbSet<Service> Services { get; set; }
 
         public ApplicationDbContext() : base()
         {
@@ -106,17 +106,18 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
                 .IsRequired()
                 .HasMaxLength(256);
         }
-    
+
         public bool Populate()
         {
             try
             {
                 //=====Volunteers=====
                 var db = new ApplicationDbContext();
-                db.Volunteers.Add(new Volunteer{ 
-                    FirstName = "Юлія", 
-                    LastName = "Жорняк", 
-                    PhoneNumber = "+380000000000", 
+                db.Volunteers.Add(new Volunteer
+                {
+                    FirstName = "Юлія",
+                    LastName = "Жорняк",
+                    PhoneNumber = "+380000000000",
                     Email = "#####@gmail.com"
                 });
                 db.Volunteers.Add(new Volunteer
@@ -249,7 +250,7 @@ namespace WEB_Basics_Project.Data.SQLServer.DataAccess
         public bool Depopulate()
         {
             try
-            {   
+            {
                 var db = new ApplicationDbContext();
                 db.Database.ExecuteSqlCommand("DELETE FROM Services");
                 db.Database.ExecuteSqlCommand("DELETE FROM Volunteers");
