@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.ApplicationDbContext">
+    <Position X="8" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAAAQAQAAAAAAAAAAAAAIEACQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.AreaRepository" BaseTypeListCollapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAAAAAAAAABAAAEAAEAAAgEAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\AreaRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.HotlineRepository" BaseTypeListCollapsed="true">
+    <Position X="9" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAAAAAAAAABAAAEAAEAAAgEAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\HotlineRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.ServiceRepository" BaseTypeListCollapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAAAAAAAAABAAAEAAEAAAgEAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\ServiceRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.VounteerRepository" BaseTypeListCollapsed="true">
+    <Position X="5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAAAAAAAAABAAAEAAEAAAgEAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\VunteerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.Models.Area">
+    <Position X="11" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\Models\Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.Models.Hotline">
+    <Position X="9" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAEAAAAQAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Data\SQLServer\Models\Hotline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.Models.Service">
+    <Position X="7" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAgAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\Models\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WEB_Basics_Project.Sql.Data.SQLServer.Models.Volunteer">
+    <Position X="5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAAEAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Data\SQLServer\Models\Volunteer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WEB_Basics_Project.Sql.Data.SQLServer.DataAccess.IRepository&lt;T&gt;">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAABAAAEAAEAAAgEAAAAAAAA=</HashCode>
+      <FileName>Data\SQLServer\DataAccess\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
