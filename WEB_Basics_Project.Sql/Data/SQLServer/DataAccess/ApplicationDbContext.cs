@@ -1,24 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+
 using WEB_Basics_Project.Sql.Data.SQLServer.Models;
 
 namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
+        private readonly IDbSettings _dbSettings;
+
         public DbSet<Volunteer> Volunteers { get; set; }
         public DbSet<Hotline> Hotlines { get; set; }
         public DbSet<Area> Areas { get; set; }
         public DbSet<Service> Services { get; set; }
-        
+
 
         public ApplicationDbContext() : base()
         {
         }
+
+        public ApplicationDbContext(IDbSettings dbSettings)
+            => this._dbSettings = dbSettings;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -26,7 +29,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-9GGT2EU;Initial Catalog=NET_Tech_Group_Project_DB;Integrated Security=True;");
+            optionsBuilder.UseSqlServer(this._dbSettings.ConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

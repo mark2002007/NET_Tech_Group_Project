@@ -11,7 +11,7 @@ namespace WEB_Basics_Project.Controllers
     [ApiController]
     public class SheltersController : Controller
     {
-        public IActionResult Shelter()
+        public IActionResult Shelters()
         {
             return View();
         }
