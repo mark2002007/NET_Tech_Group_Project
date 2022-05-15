@@ -19,6 +19,23 @@ namespace WEB_Basics_Project.Sql.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("WEB_Basics_Project.Sql.Data.SQLServer.Models.Area", b =>
+                {
+                    b.Property<int>("AreaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("AreaID");
+
+                    b.ToTable("Areas");
+                });
+
             modelBuilder.Entity("WEB_Basics_Project.Sql.Data.SQLServer.Models.Hotline", b =>
                 {
                     b.Property<int>("HotlineID")
@@ -26,10 +43,8 @@ namespace WEB_Basics_Project.Sql.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                    b.Property<int?>("AreaID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -42,6 +57,8 @@ namespace WEB_Basics_Project.Sql.Migrations
                         .HasMaxLength(16);
 
                     b.HasKey("HotlineID");
+
+                    b.HasIndex("AreaID");
 
                     b.ToTable("Hotlines");
                 });
@@ -96,6 +113,13 @@ namespace WEB_Basics_Project.Sql.Migrations
                     b.HasKey("VolunteerID");
 
                     b.ToTable("Volunteers");
+                });
+
+            modelBuilder.Entity("WEB_Basics_Project.Sql.Data.SQLServer.Models.Hotline", b =>
+                {
+                    b.HasOne("WEB_Basics_Project.Sql.Data.SQLServer.Models.Area", "Area")
+                        .WithMany()
+                        .HasForeignKey("AreaID");
                 });
 
             modelBuilder.Entity("WEB_Basics_Project.Sql.Data.SQLServer.Models.Service", b =>

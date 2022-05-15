@@ -1,4 +1,6 @@
-﻿namespace WEB_Basics_Project.Sql.Data.SQLServer.Models
+﻿using System.Collections.Generic;
+
+namespace WEB_Basics_Project.Sql.Data.SQLServer.Models
 {
     public class Area
     { 

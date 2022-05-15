@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 
 using WEB_Basics_Project.Sql.Data.SQLServer.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
@@ -29,7 +30,8 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(this._dbSettings.ConnectionString);
+            //optionsBuilder.UseSqlServer(this._dbSettings.ConnectionString);
+            optionsBuilder.UseSqlServer(@"Server=tcp:help-during-the-war.database.windows.net,1433;Initial Catalog=HelpDuringTheWarDB;Persist Security Info=False;User ID=HelpDuring;Password=QWErty!@#456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,6 +45,10 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
             modelBuilder.Entity<Volunteer>()
                 .HasMany(v => v.Services)
                 .WithOne(s => s.Volunteer);
+
+            modelBuilder.Entity<Hotline>()
+                .HasOne(h => h.Area)
+                .WithMany();
 
             //
             //=====Volunteer=====
@@ -69,7 +75,6 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
             modelBuilder.Entity<Volunteer>()
                 .Property(v => v.Email)
                 .HasMaxLength(64);
-
 
             //
             //=====Service=====
@@ -105,11 +110,6 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
                 .Property(h => h.Number)
                 .IsRequired()
                 .HasMaxLength(16);
-
-            modelBuilder.Entity<Hotline>()
-                .Property(h => h.Area)
-                .IsRequired()
-                .HasMaxLength(256);
 
             //
             //=====Area=====

@@ -7,18 +7,16 @@ namespace WEB_Basics_Project.Sql.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Hotlines",
+                name: "Areas",
                 columns: table => new
                 {
-                    HotlineID = table.Column<int>(nullable: false)
+                    AreaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 256, nullable: false),
-                    Number = table.Column<string>(maxLength: 16, nullable: false),
-                    Area = table.Column<string>(maxLength: 256, nullable: false)
+                    Name = table.Column<string>(maxLength: 256, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hotlines", x => x.HotlineID);
+                    table.PrimaryKey("PK_Areas", x => x.AreaID);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,6 +33,27 @@ namespace WEB_Basics_Project.Sql.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Volunteers", x => x.VolunteerID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Hotlines",
+                columns: table => new
+                {
+                    HotlineID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(maxLength: 256, nullable: false),
+                    Number = table.Column<string>(maxLength: 16, nullable: false),
+                    AreaID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hotlines", x => x.HotlineID);
+                    table.ForeignKey(
+                        name: "FK_Hotlines_Areas_AreaID",
+                        column: x => x.AreaID,
+                        principalTable: "Areas",
+                        principalColumn: "AreaID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,6 +77,11 @@ namespace WEB_Basics_Project.Sql.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Hotlines_AreaID",
+                table: "Hotlines",
+                column: "AreaID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Services_VolunteerID",
                 table: "Services",
                 column: "VolunteerID");
@@ -70,6 +94,9 @@ namespace WEB_Basics_Project.Sql.Migrations
 
             migrationBuilder.DropTable(
                 name: "Services");
+
+            migrationBuilder.DropTable(
+                name: "Areas");
 
             migrationBuilder.DropTable(
                 name: "Volunteers");
