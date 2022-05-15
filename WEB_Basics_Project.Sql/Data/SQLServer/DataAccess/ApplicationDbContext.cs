@@ -183,6 +183,8 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
                 //=====Services=====
                 //TODO : Services Population
 
+                //=====Areas=====
+                //db
                 //=====Hotlines=====
                 //db.Hotlines.Add(new Hotline
                 //{
@@ -256,7 +258,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
                 //    Number = "+38(032)254-66-65",
                 //    Area = "Залізничний район"
                 //});
-                db.SaveChanges();
+                //db.SaveChanges();
             }
             catch (Exception)
             {
