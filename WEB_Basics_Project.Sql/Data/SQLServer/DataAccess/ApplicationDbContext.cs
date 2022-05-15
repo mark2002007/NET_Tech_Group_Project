@@ -12,7 +12,6 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
     {
         public DbSet<Volunteer> Volunteers { get; set; }
         public DbSet<Hotline> Hotlines { get; set; }
-
         public DbSet<Area> Areas { get; set; }
         public DbSet<Service> Services { get; set; }
         
