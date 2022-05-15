@@ -181,84 +181,96 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
                     Email = "#####@gmail.com"
                 });
                 //=====Services=====
-                //TODO : Services Population
+                
+                
+
 
                 //=====Areas=====
-                //db
+
+                Area sychivskyArea = new Area { Name = "Сихівський район" };
+                Area frankivskyArea = new Area { Name = "Франківський район" };
+                Area galitskyArea = new Area { Name = "Галицький район" };
+                Area zaliznichnyArea = new Area { Name = "Залізничний район" };
+                db.Areas.Add(sychivskyArea);
+                db.Areas.Add(frankivskyArea);
+                db.Areas.Add(galitskyArea);
+                db.Areas.Add(zaliznichnyArea);
+
                 //=====Hotlines=====
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Житловик - С\"",
-                //    Number = "+38(032)254-66-56",
-                //    Area = "Сихівський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Хуторівка\"",
-                //    Number = "+38(032)254-66-55",
-                //    Area = "Сихівський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Під Зуброю\"",
-                //    Number = "+38(032)254-66-59",
-                //    Area = "Сихівський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Магістральне\"",
-                //    Number = "+38(032)254-66-72",
-                //    Area = "Франківський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Вулецьке\"",
-                //    Number = "+38(032)254-66-69",
-                //    Area = "Франківський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Аварійна служба Франківського\"",
-                //    Number = "+38(032)263-25-61",
-                //    Area = "Франківський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Лівівський ліхтар\"",
-                //    Number = "+38(032)254-66-68",
-                //    Area = "Франківський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Південне\"",
-                //    Number = "+38(032)254-66-73",
-                //    Area = "Франківський район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Айсберг\"",
-                //    Number = "+38(032)254-66-43",
-                //    Area = "Галицький район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Старий Львів\"",
-                //    Number = "+38(032)254-66-40",
-                //    Area = "Галицький район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Левандівка\"",
-                //    Number = "+38(032)254-66-64",
-                //    Area = "Залізничний район"
-                //});
-                //db.Hotlines.Add(new Hotline
-                //{
-                //    Name = "ЛКП \"Сигнівка\"",
-                //    Number = "+38(032)254-66-65",
-                //    Area = "Залізничний район"
-                //});
-                //db.SaveChanges();
+
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Житловик - С\"",
+                    Number = "+38(032)254-66-56",
+                    Area = sychivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Хуторівка\"",
+                    Number = "+38(032)254-66-55",
+                    Area = sychivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Під Зуброю\"",
+                    Number = "+38(032)254-66-59",
+                    Area = sychivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Магістральне\"",
+                    Number = "+38(032)254-66-72",
+                    Area = frankivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Вулецьке\"",
+                    Number = "+38(032)254-66-69",
+                    Area = frankivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Аварійна служба Франківського\"",
+                    Number = "+38(032)263-25-61",
+                    Area = frankivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Лівівський ліхтар\"",
+                    Number = "+38(032)254-66-68",
+                    Area = frankivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Південне\"",
+                    Number = "+38(032)254-66-73",
+                    Area = frankivskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Айсберг\"",
+                    Number = "+38(032)254-66-43",
+                    Area = galitskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Старий Львів\"",
+                    Number = "+38(032)254-66-40",
+                    Area = galitskyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Левандівка\"",
+                    Number = "+38(032)254-66-64",
+                    Area = zaliznichnyArea
+                });
+                db.Hotlines.Add(new Hotline
+                {
+                    Name = "ЛКП \"Сигнівка\"",
+                    Number = "+38(032)254-66-65",
+                    Area = zaliznichnyArea
+                });
+                db.SaveChanges();
             }
             catch (Exception)
             {
