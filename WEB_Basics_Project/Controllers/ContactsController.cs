@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
+using Microsoft.AspNetCore.Mvc;
+
+using WEB_Basics_Project.Domain;
+using WEB_Basics_Project.Models;
+using WEB_Basics_Project.Service.Services;
 
 namespace WEB_Basics_Project.Controllers
 {
@@ -11,9 +13,21 @@ namespace WEB_Basics_Project.Controllers
     [ApiController]
     public class ContactsController : Controller
     {
+        private readonly IAreaService _areaService;
+        private readonly IHotlineService _hotlineService;
+
+        public ContactsController(IAreaService areaService, IHotlineService hotlineService)
+            => (this._areaService, this._hotlineService) = (areaService, hotlineService);
+
         public IActionResult Contacts()
         {
-            return View();
+            HotlineViewModel viewModel = new HotlineViewModel
+            {
+                areas = this._areaService.GetAll(),
+                hotlines = this._hotlineService.GetAll()
+            };
+
+            return View(viewModel);
         }
     }
 }

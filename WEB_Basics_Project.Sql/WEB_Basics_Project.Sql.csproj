@@ -12,7 +12,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WEB_Basics_Project.Service\WEB_Basics_Project.Service.csproj" />
+    <ProjectReference Include="..\WEB_Basics_Projects.Domain\WEB_Basics_Project.Domain.csproj" />
   </ItemGroup>
 
 </Project>

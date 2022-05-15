@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using WEB_Basics_Project.Sql;
-
-using WebAPI.Models.Settings;
+using WEB_Basics_Project.Service.Repositories;
+using WEB_Basics_Project.Service.Services;
+using WEB_Basics_Project.Sql.Data.SQLServer.DataAccess;
 
 namespace WEB_Basics_Project
 {
@@ -16,7 +17,16 @@ namespace WEB_Basics_Project
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IDbSettings>(new DbSettings { ConnectionString = this._configuration.GetConnectionString("DefaultConnection") });
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IAreaRepository, AreaRepository>();
+            services.AddScoped<IHotlineRepository, HotlineRepository>();
+            services.AddScoped<IVolunteerRepository, VolunteerRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+
+            services.AddScoped<IAreaService, AreaService>();
+            services.AddScoped<IHotlineService, HotlineService>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

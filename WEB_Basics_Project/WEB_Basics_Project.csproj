@@ -24,11 +24,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.19" />
-    <PackageReference Include="MongoDB.Bson" Version="2.15.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WEB_Basics_Project.Service\WEB_Basics_Project.Service.csproj" />
     <ProjectReference Include="..\WEB_Basics_Project.Sql\WEB_Basics_Project.Sql.csproj" />
   </ItemGroup>
 

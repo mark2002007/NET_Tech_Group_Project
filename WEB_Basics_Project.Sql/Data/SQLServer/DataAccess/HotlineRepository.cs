@@ -1,50 +1,47 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using WEB_Basics_Project.Sql.Data.SQLServer.Models;
+
+using WEB_Basics_Project.Domain;
+using WEB_Basics_Project.Service.Repositories;
 
 namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
-    public class HotlineRepository : IRepository<Hotline>
+    public class HotlineRepository : IHotlineRepository
     {
-        private ApplicationDbContext db { get; set; }
-        public HotlineRepository()
-        {
-            db = new ApplicationDbContext();
-        }
+        private readonly ApplicationDbContext _context;
+        public HotlineRepository(ApplicationDbContext context)
+            => this._context = context;
 
         public int Create(Hotline newHotline)
         {
-            db.Hotlines.Add(newHotline);
-            return db.SaveChanges();
+            this._context.Hotlines.Add(newHotline);
+            return this._context.SaveChanges();
         }
 
-        public List<Hotline> GetAll() => db.Hotlines.ToList();
+        public List<Hotline> GetAll() => this._context.Hotlines.ToList();
 
-        public List<Hotline> GetUnion(Hotline filter) => db.Hotlines.Where(h =>
+        public List<Hotline> GetUnion(Hotline filter) => this._context.Hotlines.Where(h =>
             h.Name == filter.Name ||
             h.Number == filter.Number
         ).ToList();
 
-        public List<Hotline> GetIntersection(Hotline filter) => db.Hotlines.Where(h =>
+        public List<Hotline> GetIntersection(Hotline filter) => this._context.Hotlines.Where(h =>
             h.Name == filter.Name &&
             h.Number == filter.Number
         ).ToList();
 
         public int Update(Hotline target)
         {
-            var hotline = db.Hotlines.First(h => h.HotlineID == target.HotlineID);
+            var hotline = this._context.Hotlines.First(h => h.HotlineID == target.HotlineID);
             if (target.Name != null) hotline.Name = target.Name;
             if (target.Number != null) hotline.Number = target.Number;
-            return db.SaveChanges();
+            return this._context.SaveChanges();
         }
 
         public int Delete(int id)
         {
-            db.Remove(db.Hotlines.First(h => h.HotlineID == id));
-            return db.SaveChanges();
+            this._context.Remove(this._context.Hotlines.First(h => h.HotlineID == id));
+            return this._context.SaveChanges();
         }
     }
 }
-
-

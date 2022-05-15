@@ -1,28 +1,26 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using WEB_Basics_Project.Sql.Data.SQLServer.Models;
+
+using WEB_Basics_Project.Domain;
+using WEB_Basics_Project.Service.Repositories;
 
 namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 {
-    public class VounteerRepository : IRepository<Volunteer>
+    public class VolunteerRepository : IVolunteerRepository
     {
-        private ApplicationDbContext db { get; set; }
-        public VounteerRepository()
-        {
-            db = new ApplicationDbContext();
-        }
+        private readonly ApplicationDbContext _context;
+        public VolunteerRepository(ApplicationDbContext context)
+            => this._context = context;
+
         public int Create(Volunteer newVolunteer)
         {
-            db.Volunteers.Add(newVolunteer);
-            return db.SaveChanges();
+            this._context.Volunteers.Add(newVolunteer);
+            return this._context.SaveChanges();
         }
 
-        public List<Volunteer> GetAll() => db.Volunteers.ToList();
+        public List<Volunteer> GetAll() => this._context.Volunteers.ToList();
 
-        public List<Volunteer> GetUnion(Volunteer filter) => db.Volunteers.Where(v =>
+        public List<Volunteer> GetUnion(Volunteer filter) => this._context.Volunteers.Where(v =>
             v.VolunteerID == filter.VolunteerID ||
             v.FirstName == filter.FirstName ||
             v.LastName == filter.LastName ||
@@ -30,7 +28,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
             v.Email == filter.Email
         ).ToList();
 
-        public List<Volunteer> GetIntersection(Volunteer filter) => db.Volunteers.Where(v =>
+        public List<Volunteer> GetIntersection(Volunteer filter) => this._context.Volunteers.Where(v =>
             (filter.VolunteerID == null || v.VolunteerID == filter.VolunteerID) &&
             (filter.FirstName == null || v.FirstName == filter.FirstName) &&
             (filter.LastName == null || v.LastName == filter.LastName) &&
@@ -40,20 +38,18 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         public int Update(Volunteer target)
         {
-            var volunteer = db.Volunteers.First(v => v.VolunteerID == target.VolunteerID);
+            var volunteer = this._context.Volunteers.First(v => v.VolunteerID == target.VolunteerID);
             if (target.FirstName != null) volunteer.FirstName = target.FirstName;
             if (target.LastName != null) volunteer.LastName = target.LastName;
             if (target.PhoneNumber != null) volunteer.PhoneNumber = target.PhoneNumber;
             if (target.Email != null) volunteer.Email = target.Email;
-            return db.SaveChanges();
+            return this._context.SaveChanges();
         }
 
         public int Delete(int id)
         {
-            db.Remove(db.Volunteers.First(v => v.VolunteerID == id));
-            return db.SaveChanges();
+            this._context.Remove(this._context.Volunteers.First(v => v.VolunteerID == id));
+            return this._context.SaveChanges();
         }
     }
 }
-
-

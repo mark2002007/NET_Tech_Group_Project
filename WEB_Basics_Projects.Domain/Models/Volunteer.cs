@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace WEB_Basics_Project.Sql.Data.SQLServer.Models
+namespace WEB_Basics_Project.Domain
 {
     public class Volunteer
     {
