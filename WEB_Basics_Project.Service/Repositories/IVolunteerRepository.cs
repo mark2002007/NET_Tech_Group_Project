@@ -11,6 +11,6 @@ namespace WEB_Basics_Project.Service.Repositories
         List<Volunteer> GetUnion(Volunteer filter);
         List<Volunteer> GetIntersection(Volunteer filter);
         int Update(Volunteer target);
-        int Delete(int id);
+        int Delete(string id);
     }
 }

@@ -7,13 +7,13 @@ namespace WEB_Basics_Project.Models
 {
     public class HotlineViewModel
     {
-        public IEnumerable<Area> areas { get; set; }
-        public IEnumerable<Hotline> hotlines { get; set; }
+        public IEnumerable<Area> Areas { get; set; }
+        public IEnumerable<Hotline> Hotlines { get; set; }
 
         public HotlineViewModel()
         {
-            this.areas = Enumerable.Empty<Area>();
-            this.hotlines = Enumerable.Empty<Hotline>();
+            this.Areas = Enumerable.Empty<Area>();
+            this.Hotlines = Enumerable.Empty<Hotline>();
         }
     }
 }

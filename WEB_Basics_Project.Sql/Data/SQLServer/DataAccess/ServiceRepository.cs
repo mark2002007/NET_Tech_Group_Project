@@ -21,13 +21,13 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         public List<Domain.Service> GetUnion(Domain.Service filter) => this._context.Services.Where(s =>
             s.ServiceID == filter.ServiceID ||
-            s.Volunteer.VolunteerID == filter.Volunteer.VolunteerID ||
+            s.Volunteer.Id == filter.Volunteer.Id ||
             s.Description.Contains(filter.Description)
         ).ToList();
 
         public List<Domain.Service> GetIntersection(Domain.Service filter) => this._context.Services.Where(s =>
             s.ServiceID == filter.ServiceID &&
-            s.Volunteer.VolunteerID == filter.Volunteer.VolunteerID &&
+            s.Volunteer.Id == filter.Volunteer.Id &&
             s.Description.Contains(filter.Description)
         ).ToList();
 

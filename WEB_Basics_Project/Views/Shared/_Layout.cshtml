@@ -9,23 +9,22 @@
     <link rel="stylesheet" href="~/js/site.js" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body style="height: 100vh;margin: 0;display: flex;flex-direction: column;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3">
             <div class="container">
                 <div class="navbar-header pull-left">
-                    <img src="..//Images//logoFlag.png" style="width:25px;height:25px;" />
+                    <img src="~/Images/logoFlag.png" style="width:25px;height:25px;" />
 
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                   @* <partial name="_LoginPartial" />*@
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Благодійна організація</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Благодійна організація</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Shelters" asp-action="Shelters">Укриття</a>
@@ -43,6 +42,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="DonateArmy" asp-action="DonateArmy">Допомога ЗСУ</a>
                         </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -53,8 +53,8 @@
         @RenderBody()
     </main>
 
-    <footer>
-        <span class="d-flex justify-content-center bg-dark">
+    <footer style="min-height: 50px; background: black; margin-top: auto">
+        <span class="d-flex justify-content-center">
             <a href="https://www.facebook.com/groups/varta1officialgroup"><img id="bg" src="~/Images/facebookLogo.png" alt="Responsive image" style="width:42px;height:42px;" /></a>
             <a href="https://twitter.com/AndriySadovyi"><img id="bg" src="~/Images/twitterLogo.png" alt="Responsive image" style="width:42px;height:42px;" /></a>
             <a href="https://t.me/people_of_action/2153"><img id="bg" src="~/Images/TelegramLogo.png" alt="Responsive image" style="width:42px;height:42px;" /></a>

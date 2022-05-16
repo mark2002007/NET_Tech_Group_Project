@@ -1,0 +1,42 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="container">
+    <h1>Увійти</h1>
+    <form class="row col-12 col-md-5" id="account" method="post">
+        <div asp-validation-summary="All" class="col-12 text-danger"></div>
+        <div class="col-12 form-group">
+            <label>Email</label>
+            <input asp-for="Input.Email" class="form-control" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <label>Пароль</label>
+            <input asp-for="Input.Password" class="form-control" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <div class="checkbox">
+                <label asp-for="Input.RememberMe">
+                    <input asp-for="Input.RememberMe" />
+                        Запам'ятати мене
+                </label>
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            <button type="submit" class="btn btn-primary">Увійти</button>
+        </div>
+        <div class="col-12 d-flex justify-content-between form-group">
+            <a id="forgot-password" asp-page="./ForgotPassword">Відновити пароль</a>
+            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Зареєструвати нового користувача</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

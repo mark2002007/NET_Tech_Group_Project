@@ -21,7 +21,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
         public List<Volunteer> GetAll() => this._context.Volunteers.ToList();
 
         public List<Volunteer> GetUnion(Volunteer filter) => this._context.Volunteers.Where(v =>
-            v.VolunteerID == filter.VolunteerID ||
+            v.Id == filter.Id ||
             v.FirstName == filter.FirstName ||
             v.LastName == filter.LastName ||
             v.PhoneNumber == filter.PhoneNumber ||
@@ -29,7 +29,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
         ).ToList();
 
         public List<Volunteer> GetIntersection(Volunteer filter) => this._context.Volunteers.Where(v =>
-            (filter.VolunteerID == null || v.VolunteerID == filter.VolunteerID) &&
+            (filter.Id == null || v.Id == filter.Id) &&
             (filter.FirstName == null || v.FirstName == filter.FirstName) &&
             (filter.LastName == null || v.LastName == filter.LastName) &&
             (filter.PhoneNumber == null || v.PhoneNumber == filter.PhoneNumber) &&
@@ -38,7 +38,7 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         public int Update(Volunteer target)
         {
-            var volunteer = this._context.Volunteers.First(v => v.VolunteerID == target.VolunteerID);
+            var volunteer = this._context.Volunteers.First(v => v.Id == target.Id);
             if (target.FirstName != null) volunteer.FirstName = target.FirstName;
             if (target.LastName != null) volunteer.LastName = target.LastName;
             if (target.PhoneNumber != null) volunteer.PhoneNumber = target.PhoneNumber;
@@ -46,9 +46,9 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
             return this._context.SaveChanges();
         }
 
-        public int Delete(int id)
+        public int Delete(string id)
         {
-            this._context.Remove(this._context.Volunteers.First(v => v.VolunteerID == id));
+            this._context.Remove(this._context.Volunteers.First(v => v.Id == id));
             return this._context.SaveChanges();
         }
     }

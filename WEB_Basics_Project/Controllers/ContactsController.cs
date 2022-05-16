@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 
-using Microsoft.AspNetCore.Mvc;
-
-using WEB_Basics_Project.Domain;
 using WEB_Basics_Project.Models;
 using WEB_Basics_Project.Service.Services;
 
@@ -23,8 +20,8 @@ namespace WEB_Basics_Project.Controllers
         {
             HotlineViewModel viewModel = new HotlineViewModel
             {
-                areas = this._areaService.GetAll(),
-                hotlines = this._hotlineService.GetAll()
+                Areas = this._areaService.GetAll(),
+                Hotlines = this._hotlineService.GetAll()
             };
 
             return View(viewModel);
