@@ -34,7 +34,7 @@ namespace WEB_Basics_Project.Controllers
             => View();
 
         /// <summary>
-        /// This method show service page with service
+        /// Shows service page with service
         /// </summary>
         /// <returns></returns>
         [HttpPost]
