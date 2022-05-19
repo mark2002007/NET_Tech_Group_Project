@@ -24,22 +24,25 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Благодійна організація</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="home" asp-action="Index">Благодійна організація</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Shelters" asp-action="Shelters">Укриття</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="service" asp-action="Index">Оголошення</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RecPoint" asp-action="RecPoint">Приймальні пункти</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="shelters" asp-action="Index">Укриття</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contacts" asp-action="Contacts">Контакти</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="recpoint" asp-action="Index">Приймальні пункти</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Volunteer" asp-action="Volunteer">Волонтери</a>
-                        </li> 
+                            <a class="nav-link text-dark" asp-area="" asp-controller="contacts" asp-action="Index">Контакти</a>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DonateArmy" asp-action="DonateArmy">Допомога ЗСУ</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="donatearmy" asp-action="Index">Допомога ЗСУ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="volunteer" asp-action="Index">Про нас</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />

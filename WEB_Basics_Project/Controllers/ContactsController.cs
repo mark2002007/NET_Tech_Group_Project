@@ -5,9 +5,6 @@ using WEB_Basics_Project.Service.Services;
 
 namespace WEB_Basics_Project.Controllers
 {
-
-    [Route("api/[controller]")]
-    [ApiController]
     public class ContactsController : Controller
     {
         private readonly IAreaService _areaService;
@@ -16,7 +13,13 @@ namespace WEB_Basics_Project.Controllers
         public ContactsController(IAreaService areaService, IHotlineService hotlineService)
             => (this._areaService, this._hotlineService) = (areaService, hotlineService);
 
-        public IActionResult Contacts()
+        /// <summary>
+        /// Show contacts page with hotline
+        /// </summary>
+        /// <returns>
+        /// Return all hotline
+        /// </returns>
+        public IActionResult Index()
         {
             HotlineViewModel viewModel = new HotlineViewModel
             {

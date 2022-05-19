@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WEB_Basics_Project.Domain
+
+@inject SignInManager<Volunteer> SignInManager
+@model ServicesViewModel
+
+@{
+    ViewData["Title"] = "Оголошення";
+}
+
+<div class="container" style="font-family:'Times New Roman', Times, serif; font-size:medium">
+    <div class="center-block bg-color-blue rounded w-100 py-5">
+        <h1 class="text-center text-light" style="text-shadow: 1px 1px 2px black;">Оголошення</h1>
+    </div>
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <form class="form-group" asp-controller="service" asp-action="create">
+            <button class="btn btn-primary mt-3" type="submit">Додати оголошення</button>
+        </form>
+    }
+
+    <div class="row">
+        @if (Model.Services.Any())
+        {
+            @foreach (var service in Model.Services)
+            {
+                <div class="col-12 col-md-4 col-lg-3 my-3">
+                    <div class="border shadow text-break rounded p-3">
+                        <div class="justify-content-center p-2">
+                            Опис: @service.ServiceDescription
+                        </div>
+                        <div class="fw-bold p-2">
+                            Ім'я: @service.FirstName
+                        </div>
+                        <div class="px-2">
+                            Номер телефону: @service.PhoneNumber
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        @if (!Model.Services.Any())
+        {
+            <h1 class="mt-5">Оголошень наразі немає.</h1>
+        }
+    </div>
+</div>

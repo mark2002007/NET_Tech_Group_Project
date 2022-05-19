@@ -19,15 +19,25 @@ namespace WEB_Basics_Project
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AuthContext>(options => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection")));
+            /* services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection")));
+             services.AddDbContext<AuthContext>(options => options.UseSqlServer(this._configuration.GetConnectionString("DefaultConnection")));*/
 
-            services.AddDefaultIdentity<Volunteer>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("Server=tcp:help-during-the-war.database.windows.net,1433;Initial Catalog=HelpDuringTheWarDB;Persist Security Info=False;User ID=HelpDuring;Password=QWErty!@#456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+            services.AddDbContext<AuthContext>(options => options.UseSqlServer("Server=tcp:help-during-the-war.database.windows.net,1433;Initial Catalog=HelpDuringTheWarDB;Persist Security Info=False;User ID=HelpDuring;Password=QWErty!@#456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+
+            services.AddDefaultIdentity<Volunteer>(options =>
+                {
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                    options.SignIn.RequireConfirmedAccount = false;
+                })
                 .AddEntityFrameworkStores<AuthContext>();
 
             services.AddScoped<IAreaRepository, AreaRepository>();
             services.AddScoped<IHotlineRepository, HotlineRepository>();
-            services.AddScoped<IVolunteerRepository, VolunteerRepository>();
             services.AddScoped<IServiceRepository, ServiceRepository>();
 
             services.AddScoped<IAreaService, AreaService>();

@@ -21,20 +21,20 @@ namespace WEB_Basics_Project.Sql.Data.SQLServer.DataAccess
 
         public List<Domain.Service> GetUnion(Domain.Service filter) => this._context.Services.Where(s =>
             s.ServiceID == filter.ServiceID ||
-            s.Volunteer.Id == filter.Volunteer.Id ||
+            s.VolunteerID == filter.VolunteerID ||
             s.Description.Contains(filter.Description)
         ).ToList();
 
         public List<Domain.Service> GetIntersection(Domain.Service filter) => this._context.Services.Where(s =>
             s.ServiceID == filter.ServiceID &&
-            s.Volunteer.Id == filter.Volunteer.Id &&
+            s.VolunteerID == filter.VolunteerID &&
             s.Description.Contains(filter.Description)
         ).ToList();
 
         public int Update(Domain.Service target)
         {
             var service = this._context.Services.First(s => s.ServiceID == target.ServiceID);
-            if (target.Volunteer != null) service.Volunteer = target.Volunteer;
+            if (target.VolunteerID != null) service.VolunteerID = target.VolunteerID;
             if (target.Description != null) service.Description = target.Description;
             return this._context.SaveChanges();
         }
